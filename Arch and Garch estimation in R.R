@@ -59,3 +59,20 @@ aparch_11=garchFit(formula= ~aparch(1,1), data=na.omit(Zero_mean_return)
                    ,include.mean = FALSE,include.delta = F,delta = 2,trace = F).predict()
 aparch_11@fit$coef
 garchFit()
+
+# normal APARCH(1,1)
+aparch_11=garchFit(formula= ~aparch(1,1), data=na.omit(Zero_mean_return)
+         ,include.mean = FALSE,trace = F)
+# fix delta = 2
+aparch_delta2_11=garchFit(formula= ~aparch(1,1), data=na.omit(Zero_mean_return)
+                   ,include.mean = FALSE,include.delta = F,delta = 2,trace = F)
+aparch_delta2_11@fit$coef
+
+aparch_student_t_11 = garchFit(formula = ~aparch(1,1),data = na.omit(Zero_mean_return)
+                               ,include.mean = FALSE, cond.dist = 'std',trace = F)
+aparch_student_t_11@fit$coef
+
+# Normal Aparch(2,2)
+aparch_22 = garchFit(formula = ~aparch(2,2), data = na.omit(Zero_mean_return), 
+                     include.mean = FALSE ,trace=F)
+aparch_22@fit$coef
